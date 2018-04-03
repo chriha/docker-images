@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+readonly RED="$(tput setaf 1)"
+readonly GREEN="$(tput setaf 2)"
+readonly YELLOW="$(tput setaf 3)"
+readonly BLUE="$(tput setaf 4)"
+readonly BOLD="$(tput bold)"
+readonly NORMAL="$(tput sgr0)"
+readonly CLEAR_LINE="\r\033[K"
+
+[ -z "$1" ] || [ -z "$2" ] && printf "${RED}Please specify what to build and which version.${NORMAL}\n" && exit
+
+[ ! -d "$1" ] && printf "${RED}Unable to find '$1'.${NORMAL}\n" && exit
+
+[ ! -d "$1/$2" ] && printf "${RED}Unable to find version '$2' for '$1'${NORMAL}.\n" && exit
+
+printf "${YELLOW}Starting build ...${NORMAL}\n"
+printf "${YELLOW}----------------------------------------${NORMAL}\n"
+sleep 2
+
+if ( docker build -f "$1/$2/Dockerfile" -t "procli/$1:$2" "$1/$2/." ); then
+    printf "${GREEN}----------------------------------------${NORMAL}\n"
+    printf "${GREEN}Finished!${NORMAL}\n"
+else
+    printf "${RED}----------------------------------------${NORMAL}\n"
+    printf "${RED}Finished with errors!${NORMAL}\n"
+fi
