@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get install -y nginx curl git software-properties-common supervisor vim htop \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
-    && apt-get install -y cron php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-mbstring php7.1-gd php7.1-imagick php7.1-mysql php7.1-xml php7.1-curl php7.1-bcmath php7.1-zip php7.1-intl \
+    && apt-get install -y cron php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-mbstring php7.1-gd php7.1-imagick php7.1-mysql php7.1-xml php7.1-curl php7.1-bcmath php7.1-zip php7.1-intl php7.1-sqlite \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
