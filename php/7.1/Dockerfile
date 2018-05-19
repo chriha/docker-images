@@ -13,14 +13,16 @@ RUN apt-get update \
     && apt-get install -y nginx curl git software-properties-common supervisor vim htop \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
-    && apt-get install -y cron php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-mbstring php7.1-gd php7.1-imagick php7.1-mysql php7.1-xml php7.1-curl php7.1-bcmath php7.1-zip php7.1-intl php7.1-sqlite \
+    && apt-get install -y cron php7.1-fpm php7.1-cli php7.1-mcrypt php7.1-mbstring php7.1-gd php7.1-imagick php7.1-mysql php7.1-xml php7.1-curl php7.1-bcmath php7.1-zip php7.1-intl php7.1-sqlite php7.1-xdebug \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && mkdir /run/php \
     && apt-get remove -y --purge software-properties-common \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo "daemon off;" >> /etc/nginx/nginx.conf
+    && echo "daemon off;" >> /etc/nginx/nginx.conf \
+    && rm /etc/php/7.1/cli/conf.d/20-xdebug.ini \
+    && rm /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 
 # link nginx logs to stdout / stderr
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
