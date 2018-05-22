@@ -31,6 +31,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 COPY conf/nginx /etc/nginx/sites-available/default
 COPY conf/php-fpm.conf /etc/php/7.1/fpm/php-fpm.conf
 COPY conf/php.ini /etc/php/7.1/fpm/php.ini
+COPY conf/xdebug.ini /etc/php/7.1/mods-available/xdebug.ini
 COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR /var/www
