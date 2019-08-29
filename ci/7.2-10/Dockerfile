@@ -25,4 +25,4 @@ RUN apt-get update \
 
 WORKDIR /var/www
 
-CMD ["/usr/bin/supervisord"]
+CMD ["bash"]
