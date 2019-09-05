@@ -18,7 +18,7 @@ printf "${YELLOW}Starting build ...${NORMAL}\n"
 printf "${YELLOW}----------------------------------------${NORMAL}\n"
 sleep 2
 
-if ( docker build -f "$1/$2/Dockerfile" -t "procli/$1:$2" "$1/$2/." ); then
+if ( docker build -f "$1/$2/Dockerfile" -t "chriha/$1:$2" "$1/$2/." ); then
     printf "${GREEN}----------------------------------------${NORMAL}\n"
     printf "${GREEN}Finished!${NORMAL}\n"
 else
