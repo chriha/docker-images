@@ -10,7 +10,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update \
-    && apt-get install -y curl git software-properties-common vim htop openssh-client \
+    && apt-get install -y curl git software-properties-common vim htop openssh-client unzip \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
     && apt-get install -y php7.2-cli php7.2-mbstring php7.2-gd php7.2-imagick php7.2-mysql php7.2-xml php7.2-curl php7.2-bcmath php7.2-zip php7.2-intl php7.2-sqlite \
