@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
     && apt-get install -y nodejs
 
-EXPOSE 80
+EXPOSE 80 3001
 
 WORKDIR /var/www
 
