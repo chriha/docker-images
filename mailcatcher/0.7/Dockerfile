@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN gem install mailcatcher -v 0.7.0 --no-ri --no-rdoc
+RUN gem install mailcatcher -v 0.7.1 --no-ri --no-rdoc
 
 COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
